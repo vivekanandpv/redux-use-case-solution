@@ -1,25 +1,31 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import Sample from "./components/Sample";
+import Demo from "./components/Demo";
+import {useSelector} from "react-redux";
+const App = (props) => {
+    const counter = useSelector(store => store.counter);
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+    return (
+        <>
+            <div className="p-5">
+                <h3 className='text-center'>
+                    App Component {counter}</h3>
+                <hr/>
+              <div className="row mt-5">
+                <div className="col">
+                  <div className="card m-4 p-4">
+                    <Sample />
+                  </div>
+                </div>
+                <div className="col">
+                  <div className="card m-4 p-4">
+                    <Demo />
+                  </div>
+                </div>
+              </div>
+            </div>
+        </>
+    );
+};
 
 export default App;
